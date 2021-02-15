@@ -1,12 +1,15 @@
-require(["esri/Map", "esri/views/MapView"], function(Map, MapView) {
-        var map = new Map({
-          basemap: "dark-gray"
+require(["esri/views/MapView", "esri/WebMap"], function(MapView, WebMap) {
+        /************************************************************
+         * Creates a new WebMap instance. A WebMap must reference
+         * a PortalItem ID that represents a WebMap saved to
+         * arcgis.com or an on-premise portal.
+         *
+         * To load a WebMap from an on-premise portal, set the portal
+         * url with esriConfig.portalUrl.
+         ************************************************************/
+        var webmap = new WebMap({
+          portalItem: {
+            // autocasts as new PortalItem()
+            id: "a351a019f4874c6ea636063c67fda6b1"
+          }
         });
-
-        var view = new MapView({
-          container: "viewDiv",
-          map: map,
-          zoom: 10,
-          center: [-89.85, 38.85] // longitude, latitude
-        });
-      });
